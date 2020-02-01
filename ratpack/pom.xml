@@ -82,54 +82,6 @@
                     </arguments>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.31.0</version>
-                <configuration>
-                    <showLogs>true</showLogs>
-                    <logStdout>true</logStdout>
-                    <verbose>all</verbose>
-                    <containerNamePattern>%n-%t</containerNamePattern>
-                    <images>
-                        <image>
-                            <name>appsvc-${project.artifactId}</name>
-                            <run>
-                                <ports>8080:80</ports>
-                                <wait>
-                                    <http>
-                                        <url>http://localhost:8080</url>
-                                        <method>get</method>
-                                    </http>
-                                </wait>
-                            </run>
-                        </image>
-                    </images>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>build-image</id>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <phase>
-                            package
-                        </phase>
-                    </execution>
-                    <execution>
-                        <id>test-image</id>
-                        <goals>
-                            <goal>start</goal>
-                            <goal>stop</goal>
-                        </goals>
-                        <phase>
-                            integration-test
-                        </phase>
-                    </execution>
-                </executions>
-            </plugin>
-
         </plugins>
     </build>
 
