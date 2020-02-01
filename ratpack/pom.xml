@@ -24,7 +24,7 @@
         <dependency>
             <groupId>io.ratpack</groupId>
             <artifactId>ratpack-core</artifactId>
-            <version>1.7.3</version>
+            <version>1.7.6</version>
         </dependency>
 
         <!-- SLF4J -->
